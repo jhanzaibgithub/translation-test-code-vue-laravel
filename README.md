@@ -72,10 +72,15 @@ JSON Export for all or paginated records
 Method	URI	Description
 
 GET	/api/translations	Paginated + Filtered list
+
 GET	/api/translations-show	Export all translations (JSON)
+
 POST	/api/translations/create	Add a new translation
+
 POST	/api/translations/update/{id}	Update a translation
+
 POST	/api/translations/delete/{id}	Delete a translation
+
 GET	/api/tags	Get list of unique tags
 
 
