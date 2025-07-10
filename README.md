@@ -184,8 +184,11 @@ Create / Edit modals
 ✅ 3. File Structure (Frontend)
 
 resources/js/
+
 ├── views/
+
 │   ├── Login.vue
+
 │   ├── Register.vue
 │   ├── Dashboard.vue
 ├── components/
