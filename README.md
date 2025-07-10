@@ -1,74 +1,197 @@
-<p align="center">
-  <a href="https://laravel.com" target="_blank">
-    <img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400" alt="Laravel Logo">
-  </a>
-</p>
+Project Name: Translation Management Service
 
-<p align="center">
-  <a href="https://github.com/laravel/framework/actions"><img src="https://github.com/laravel/framework/workflows/tests/badge.svg" alt="Build Status"></a>
-  <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-  <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-  <a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+A full-featured Translation Management API and Admin Panel using Laravel (with Passport Auth), Vue 3, Bootstrap 5, Docker, Swagger, and scalable architecture. This system supports multi-locale translation records with tag-based filtering and JSON export for frontend consumption.
+
 
 ---
 
-# 🚀 Project Name: Translation Management Service
+🛠 Part 1: Backend (Laravel 10 + Passport + Swagger)
 
-A full-featured Translation Management API and Admin Panel using **Laravel (Passport Auth)**, **Vue 3**, **Bootstrap 5**, **Docker**, **Swagger**, and scalable architecture.  
-Supports multi-locale translation records with tag-based filtering and JSON export for frontend use.
+✅ 1. Laravel Setup
 
----
+Installed Laravel 10.
 
-## 🛠 Part 1: Backend (Laravel 10 + Passport + Swagger)
+Set up .env file for database & app config.
 
-### ✅ 1. Laravel Setup
-- Installed Laravel 10
-- Set up `.env` for database and app config
-- Ran migrations via `php artisan migrate`
+Ran migrations using php artisan migrate.
+
+
 
 ---
 
-### ✅ 2. Authentication
-- Configured Laravel Passport for token-based authentication
-- Added `HasApiTokens` to `User` model
-- Protected API routes with `auth:api` middleware
-- Implemented login and registration routes
+✅ 2. Authentication
+
+Installed and configured Laravel Passport for token-based authentication.
+
+Added HasApiTokens to User model.
+
+Secured API routes using auth:api middleware.
+
+Implemented basic login and registration routes.
+
+
 
 ---
 
-### ✅ 3. Translation CRUD API
-- Created `Translation` model, migration, controller
-- Fields:
-  - `key` (string)
-  - `value` (text)
-  - `locale` (e.g., en, fr, es)
-  - `tag` (e.g., mobile, web)
+✅ 3. Translation CRUD API
+
+Created a Translation model, migration, and controller.
+
+Added support for:
+
+key (string)
+
+value (text)
+
+locale (e.g., en, fr, es)
+
+tag (e.g., mobile, web)
+
+
+
 
 ---
 
-### ✅ 4. Tag Filtering, Search & Pagination
-- API allows filtering by:
-  - `key`, `value`, `tag`
-- Pagination (10, 25, 50, 100, all)
-- JSON Export for full or paginated results
+✅ 4. Tag Filtering, Search & Pagination
+
+API allows:
+
+Filtering by key, value, tag
+
+Pagination (10/25/50/100/all)
+
+JSON Export for all or paginated records
+
+
+
 
 ---
 
-### ✅ 5. API Routes
+✅ 5. API Routes
 
-| Method | URI | Description |
-|--------|-----|-------------|
-| GET    | `/api/translations`        | Paginated + Filtered list |
-| GET    | `/api/translations-show`   | Export all translations (JSON) |
-| POST   | `/api/translations/create` | Add a new translation |
-| POST   | `/api/translations/update/{id}` | Update a translation |
-| POST   | `/api/translations/delete/{id}` | Delete a translation |
-| GET    | `/api/tags`                | Get unique tags |
+Method	URI	Description
+
+GET	/api/translations	Paginated + Filtered list
+GET	/api/translations-show	Export all translations (JSON)
+POST	/api/translations/create	Add a new translation
+POST	/api/translations/update/{id}	Update a translation
+POST	/api/translations/delete/{id}	Delete a translation
+GET	/api/tags	Get list of unique tags
+
+
 
 ---
 
-### ✅ 6. Factory + Seeder
-- Generated 100,000+ dummy records:
-```bash
+✅ 6. Factory + Seeder for Performance Testing
+
+Used Laravel factories to generate 100,000+ dummy records.
+
+
 php artisan db:seed --class=TranslationSeeder
+
+
+---
+
+✅ 7. Swagger/OpenAPI Docs
+
+Installed l5-swagger.
+
+Documented all API endpoints using @OA\... annotations.
+
+Swagger JSON available at:
+
+/api/documentation
+
+
+
+---
+
+✅ 8. Docker Setup
+
+Dockerfile for Laravel PHP-FPM.
+
+docker-compose.yml includes:
+
+nginx (reverse proxy)
+
+mysql (8.0)
+
+app (Laravel)
+
+
+
+Run with:
+
+docker-compose up -d --build
+
+
+✅ 9. Testing
+
+Created:
+
+Feature tests for CRUD
+
+Unit test for model validation
+
+Performance test (JSON export response under 500ms)
+
+
+
+Run with:
+
+php artisan test
+
+
+
+
+🖼 Part 2: Frontend (Vue 3 + Bootstrap 5)
+
+✅ 1. Setup
+
+Vue 3 + Bootstrap 5 via Vite
+
+Created views and router config for:
+
+Login
+
+Register
+
+Dashboard (Translation Manager)
+
+
+
+
+
+
+✅ 2. Translation Management UI
+
+Vue page /translations shows:
+
+Filters: key, value, tag
+
+Pagination & export buttons
+
+Create / Edit modals
+
+
+
+
+✅ 3. File Structure (Frontend)
+
+resources/js/
+├── views/
+│   ├── Login.vue
+│   ├── Register.vue
+│   ├── Dashboard.vue
+├── components/
+│   MainLayout.vue
+├── router.js
+├── app.js
+└── bootstrap.js
+
+
+
+
+✅ 4. Export Button
+
+Exports filtered/paginated results as translations_page_1.json
