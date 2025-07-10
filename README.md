@@ -190,11 +190,17 @@ resources/js/
 │   ├── Login.vue
 
 │   ├── Register.vue
+
 │   ├── Dashboard.vue
-├── components/
-│   MainLayout.vue
+
+    ├── components
+
+    │   MainLayout.vue
+
 ├── router.js
+
 ├── app.js
+
 └── bootstrap.js
 
 
